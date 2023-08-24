@@ -750,6 +750,7 @@ class FalconModel(FalconPreTrainedModel):
 
         # Compute alibi tensor: check build_alibi_tensor documentation
         past_key_values_length = 0
+        print(past_key_values)
         if past_key_values[0] is not None:
             past_key_values_length = past_key_values[0][0].shape[1]  # 1 because RW-cache, not standard format
         if attention_mask is None:
