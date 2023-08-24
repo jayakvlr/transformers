@@ -638,7 +638,7 @@ class FalconPreTrainedModel(PreTrainedModel):
 class FalconModel(FalconPreTrainedModel):
     def __init__(self, config: FalconConfig):
         super().__init__(config)
-
+        print('reached falcon')
         self.embed_dim = config.hidden_size
         self.num_heads = config.num_attention_heads
         self.use_alibi = config.alibi
@@ -750,7 +750,7 @@ class FalconModel(FalconPreTrainedModel):
 
         # Compute alibi tensor: check build_alibi_tensor documentation
         past_key_values_length = 0
-        print(past_key_values)
+        print('past_key_values',past_key_values)
         if past_key_values[0] is not None:
             past_key_values_length = past_key_values[0][0].shape[1]  # 1 because RW-cache, not standard format
         if attention_mask is None:
